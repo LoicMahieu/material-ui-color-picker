@@ -31,13 +31,23 @@ const ColorPicker = ({
       floatingLabelText={floatingLabelText}
       inputStyle={{ color: value }}
       onClick={() => setShowPicker(true)}
-      onChange={e => { setValue(e.target.value); onChange(e.target.value) }}
+      onChange={e => {
+        setValue(e.target.value)
+        onChange(e.target.value)
+      }}
     />
     {showPicker && (
       <PickerDialog
         value={value}
-        onClick={() => { setShowPicker(false); onChange(value) }}
-        onChange={c => setValue(converters[convert](c))}
+        onClick={() => {
+          setShowPicker(false)
+          onChange(value)
+        }}
+        onChange={c => {
+          const newValue = converters[convert](c)
+          setValue(newValue)
+          onChange(newValue)
+        }}
       />
     )}
   </div>
