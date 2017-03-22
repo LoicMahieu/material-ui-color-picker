@@ -1,0 +1,50 @@
+{
+  "name": "aor-color-input",
+  "version": "1.0.0",
+  "description": "<ColorInput> component for admin-on-rest, useful for picking color in admin GUIs",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production babel ./src -d lib",
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  },
+  "files": [
+    "LICENSE",
+    "*.md",
+    "lib",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loicmahieu/aor-color-input.git"
+  },
+  "keywords": [
+    "reactjs",
+    "react",
+    "rest",
+    "color",
+    "picker",
+    "selector"
+  ],
+  "author": "Loic Mahieu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loicmahieu/aor-color-input/issues"
+  },
+  "homepage": "https://github.com/loicmahieu/aor-color-input#readme",
+  "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
+    "babel-cli": "^6.18.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "material-ui": "^0.17.1",
+    "react-dom": "^15.4.2"
+  },
+  "dependencies": {
+    "react": "~15.4.0",
+    "react-color": "^2.11.4"
+  }
+}
