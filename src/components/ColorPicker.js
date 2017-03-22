@@ -15,6 +15,8 @@ const ColorPicker = ({
   convert,
 
   // Text field
+  name,
+  id,
   hintText,
   floatingLabelText,
 
@@ -26,6 +28,8 @@ const ColorPicker = ({
 }) => (
   <div>
     <TextField
+      name={name}
+      id={id}
       hintText={hintText}
       value={value}
       floatingLabelText={floatingLabelText}
