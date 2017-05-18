@@ -17,6 +17,7 @@ import React from 'react'
 import ColorPicker from 'material-ui-color-picker'
 
 <ColorPicker
+  name='color'
   defaultValue='#000'
   onChange={color => console.log(color)}
 />
