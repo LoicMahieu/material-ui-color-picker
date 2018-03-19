@@ -1,7 +1,6 @@
 {
-    "presets": ["es2015", "stage-0", "react"],
+    "presets": ["env", "react"],
     "plugins": [
-        "add-module-exports",
-        "transform-react-jsx",
+        "add-module-exports"
     ]
 }
