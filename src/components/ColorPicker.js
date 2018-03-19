@@ -18,7 +18,10 @@ const ColorPicker = ({
   name,
   id,
   hintText,
+  placeholder,
   floatingLabelText,
+  label,
+  TextFieldProps,
 
   // State
   showPicker,
@@ -30,15 +33,16 @@ const ColorPicker = ({
     <TextField
       name={name}
       id={id}
-      hintText={hintText}
       value={value}
-      floatingLabelText={floatingLabelText}
-      inputStyle={{ color: value }}
+      label={floatingLabelText || label}
+      placeholder={hintText || placeholder}
       onClick={() => setShowPicker(true)}
       onChange={e => {
         setValue(e.target.value)
         onChange(e.target.value)
-      }}
+        }
+      }
+      InputProps={{style: {color: value}}}
     />
     {showPicker && (
       <PickerDialog
