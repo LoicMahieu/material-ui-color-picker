@@ -29,9 +29,13 @@ import ColorPicker from 'material-ui-color-picker'
 <ColorPicker
   name='color'
   defaultValue='#000'
+  disableAlpha={ false }
+  pickerType='Circle'
   onChange={color => console.log(color)}
 />
 ```
+
+`pickerType` can be any React Color supported class. `CirclePicker` becomes `Circle`. 
 
 There is not so much properties at this time. The was very quickly designed for my needs. Feel free to submit a PR with new features ;)
 

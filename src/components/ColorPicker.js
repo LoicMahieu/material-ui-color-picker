@@ -13,6 +13,8 @@ const ColorPicker = ({
   defaultValue,
   onChange,
   convert,
+  pickerType,
+  disableAlpha,
 
   // Text field
   name,
@@ -43,6 +45,8 @@ const ColorPicker = ({
     {showPicker && (
       <PickerDialog
         value={value}
+        pickerType={pickerType}
+        disableAlpha={disableAlpha}
         onClick={() => {
           setShowPicker(false)
           onChange(value)
