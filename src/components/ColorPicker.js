@@ -26,7 +26,7 @@ const ColorPicker = ({
 }) => (
   <div>
     <TextField
-      value={value || internalValue}
+      value={value === undefined ? internalValue : value}
       onClick={() => setShowPicker(true)}
       onChange={e => {
         setValue(e.target.value)
@@ -38,7 +38,7 @@ const ColorPicker = ({
     />
     {showPicker && (
       <PickerDialog
-        value={value || internalValue}
+        value={value === undefined ? internalValue : value}
         onClick={() => {
           setShowPicker(false)
           onChange(value)
