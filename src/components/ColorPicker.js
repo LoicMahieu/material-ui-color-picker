@@ -70,10 +70,12 @@ const makeColorPicker = compose(
 
 const MakedColorPicker = makeColorPicker(ColorPicker);
 
-const ColorPickerField = ({ input: { value, onChange }, ...restProps }) => (
+const ColorPickerField = ({ input: { value, onChange, ...restInput }, meta: { touched, error }, ...restProps }) => (
   <MakedColorPicker
     value={value}
     onChange={onChange}
+    errorText={touched && error}
+    {...restInput}
     {...restProps}
   />
 );
