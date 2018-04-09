@@ -13,36 +13,32 @@ const ColorPicker = ({
   defaultValue,
   onChange,
   convert,
-
-  // Text field
-  name,
-  id,
-  hintText,
-  floatingLabelText,
+  value,
 
   // State
   showPicker,
   setShowPicker,
-  value,
-  setValue
+  internalValue,
+  setValue,
+
+  // pass other props to Text field
+  ...restProps
 }) => (
   <div>
     <TextField
-      name={name}
-      id={id}
-      hintText={hintText}
-      value={value}
-      floatingLabelText={floatingLabelText}
-      inputStyle={{ color: value }}
+      value={value || internalValue}
       onClick={() => setShowPicker(true)}
       onChange={e => {
         setValue(e.target.value)
         onChange(e.target.value)
-      }}
+        }
+      }
+      InputProps={{style: {color: value}}}
+      {...restProps}
     />
     {showPicker && (
       <PickerDialog
-        value={value}
+        value={value || internalValue}
         onClick={() => {
           setShowPicker(false)
           onChange(value)
@@ -69,7 +65,21 @@ ColorPicker.defaultProps = {
 
 const makeColorPicker = compose(
   withState('showPicker', 'setShowPicker', false),
-  withState('value', 'setValue', ({ defaultValue }) => defaultValue)
+  withState('internalValue', 'setValue', ({ defaultValue }) => defaultValue)
 )
 
-export default makeColorPicker(ColorPicker)
+const MakedColorPicker = makeColorPicker(ColorPicker);
+
+const ColorPickerField = ({ input: { value, onChange }, ...restProps }) => (
+  <MakedColorPicker
+    value={value}
+    onChange={onChange}
+    {...restProps}
+  />
+);
+
+export default MakedColorPicker;
+
+export {
+  ColorPickerField,
+};
