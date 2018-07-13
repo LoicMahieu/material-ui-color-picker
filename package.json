@@ -46,7 +46,7 @@
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-color": "^2.11.4",
-    "recompose": "^0.22.0"
+    "recompose": "^0.27.0"
   },
   "peerDependencies": {
     "@material-ui/core": "^1.0.0"
