@@ -41,8 +41,7 @@ const ColorPicker = ({
       onChange={e => {
         setValue(e.target.value)
         onChange(e.target.value)
-        }
-      }
+      }}
       InputProps={{style: {color: value}}}
     />
     {showPicker && (
