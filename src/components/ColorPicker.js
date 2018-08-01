@@ -1,9 +1,10 @@
 
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import compose from 'recompose/compose'
 import withState from 'recompose/withState'
 
-import TextField from 'material-ui/TextField'
+import TextField from '@material-ui/core/TextField'
 
 import { DEFAULT_CONVERTER, converters } from '../transformers'
 import PickerDialog from './PickerDialog'
@@ -18,7 +19,10 @@ const ColorPicker = ({
   name,
   id,
   hintText,
+  placeholder,
   floatingLabelText,
+  label,
+  TextFieldProps,
 
   // State
   showPicker,
@@ -30,15 +34,15 @@ const ColorPicker = ({
     <TextField
       name={name}
       id={id}
-      hintText={hintText}
       value={value}
-      floatingLabelText={floatingLabelText}
-      inputStyle={{ color: value }}
+      label={floatingLabelText || label}
+      placeholder={hintText || placeholder}
       onClick={() => setShowPicker(true)}
       onChange={e => {
         setValue(e.target.value)
         onChange(e.target.value)
       }}
+      InputProps={{style: {color: value}}}
     />
     {showPicker && (
       <PickerDialog

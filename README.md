@@ -6,18 +6,10 @@ ColorPicker based on [`<TextField />`](http://www.material-ui.com/#/components/t
 
 ## Installation
 
-For material-ui next (v1):
+For material-ui (v1):
 
 ```sh
-npm install material-ui-color-picker@next --save
-```
-
-(see [`next`](/tree/next) branch for development)
-
-For material-ui stable (v0.x):
-
-```sh
-npm install material-ui-color-picker --save
+npm install --save material-ui-color-picker
 ```
 
 ## Usage

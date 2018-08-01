@@ -1,10 +1,8 @@
 
 import React from 'react'
-import { storiesOf, action } from '@kadira/storybook'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-
-injectTapEventPlugin()
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { MuiThemeProvider } from '@material-ui/core/styles'
 
 import ColorPicker from '../src'
 
