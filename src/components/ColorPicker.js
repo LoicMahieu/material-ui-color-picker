@@ -43,6 +43,7 @@ const ColorPicker = ({
         onChange(e.target.value)
       }}
       InputProps={{style: {color: value}}}
+      {...TextFieldProps}
     />
     {showPicker && (
       <PickerDialog
