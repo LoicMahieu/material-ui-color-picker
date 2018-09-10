@@ -9,6 +9,10 @@ import TextField from '@material-ui/core/TextField'
 import { DEFAULT_CONVERTER, converters } from '../transformers'
 import PickerDialog from './PickerDialog'
 
+const fullWidthStyles = {
+  width: "100%"
+}
+
 const ColorPicker = ({
   // ColorPicker
   defaultValue,
@@ -30,7 +34,7 @@ const ColorPicker = ({
   value,
   setValue
 }) => (
-  <div>
+  <div style={TextFieldProps && TextFieldProps.fullWidth ? fullWidthStyles : {}}>
     <TextField
       name={name}
       id={id}
