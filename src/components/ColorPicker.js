@@ -1,13 +1,12 @@
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import compose from "recompose/compose";
+import withState from "recompose/withState";
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import compose from 'recompose/compose'
-import withState from 'recompose/withState'
+import TextField from "@material-ui/core/TextField";
 
-import TextField from '@material-ui/core/TextField'
-
-import { DEFAULT_CONVERTER, converters } from '../transformers'
-import PickerDialog from './PickerDialog'
+import { DEFAULT_CONVERTER, converters } from "../transformers";
+import PickerDialog from "./PickerDialog";
 
 const ColorPicker = ({
   // ColorPicker
@@ -30,7 +29,7 @@ const ColorPicker = ({
   value,
   setValue
 }) => (
-  <div>
+  <Fragment>
     <TextField
       name={name}
       id={id}
@@ -39,42 +38,42 @@ const ColorPicker = ({
       placeholder={hintText || placeholder}
       onClick={() => setShowPicker(true)}
       onChange={e => {
-        setValue(e.target.value)
-        onChange(e.target.value)
+        setValue(e.target.value);
+        onChange(e.target.value);
       }}
-      InputProps={{style: {color: value}}}
+      InputProps={{ style: { color: value } }}
       {...TextFieldProps}
     />
     {showPicker && (
       <PickerDialog
         value={value}
         onClick={() => {
-          setShowPicker(false)
-          onChange(value)
+          setShowPicker(false);
+          onChange(value);
         }}
         onChange={c => {
-          const newValue = converters[convert](c)
-          setValue(newValue)
-          onChange(newValue)
+          const newValue = converters[convert](c);
+          setValue(newValue);
+          onChange(newValue);
         }}
       />
     )}
-  </div>
-)
+  </Fragment>
+);
 
 ColorPicker.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   convert: PropTypes.oneOf(Object.keys(converters))
-}
+};
 
 ColorPicker.defaultProps = {
   convert: DEFAULT_CONVERTER
-}
+};
 
 const makeColorPicker = compose(
-  withState('showPicker', 'setShowPicker', false),
-  withState('value', 'setValue', ({ defaultValue }) => defaultValue)
-)
+  withState("showPicker", "setShowPicker", false),
+  withState("value", "setValue", ({ defaultValue }) => defaultValue)
+);
 
-export default makeColorPicker(ColorPicker)
+export default makeColorPicker(ColorPicker);
