@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import compose from 'recompose/compose"
+import compose from 'recompose/compose'
 import withState from 'recompose/withState'
 
 import TextField from '@material-ui/core/TextField'
