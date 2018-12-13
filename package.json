@@ -4,7 +4,8 @@
   "description": "<ColorInput> component for material-ui",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
+    "lint": "eslint 'src/**/*.js'",
     "build": "NODE_ENV=production babel ./src -d lib",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "prepare": "NODE_ENV=production babel ./src -d lib"
@@ -33,22 +34,31 @@
   },
   "homepage": "https://github.com/loicmahieu/material-ui-color-picker#readme",
   "devDependencies": {
-    "@material-ui/core": "^1.0.0",
-    "@storybook/react": "^3.4.0",
-    "babel-cli": "^6.18.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-react-jsx": "^6.8.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.16.0",
-    "react-dom": "^16.0.0"
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^4.1.1",
+    "@storybook/react": "^4.1.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "react-dom": "^16.6.3"
   },
   "dependencies": {
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-color": "^2.11.4",
-    "recompose": "^0.27.0"
+    "@material-ui/core": "^3.6.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-color": "^2.14.1",
+    "recompose": "^0.30.0"
   },
   "peerDependencies": {
-    "@material-ui/core": "^1.0.0"
+    "@material-ui/core": "^3.6.2"
   }
 }
