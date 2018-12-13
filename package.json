@@ -4,7 +4,8 @@
   "description": "<ColorInput> component for material-ui",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
+    "lint": "eslint 'src/**/*.js'",
     "build": "NODE_ENV=production babel ./src -d lib",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "prepare": "NODE_ENV=production babel ./src -d lib"
@@ -39,6 +40,15 @@
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^4.1.1",
     "@storybook/react": "^4.1.1",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
     "react-dom": "^16.6.3"
   },
   "dependencies": {
