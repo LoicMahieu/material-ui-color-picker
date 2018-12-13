@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import compose from 'recompose/compose'
 import withState from 'recompose/withState'
@@ -30,7 +29,7 @@ const ColorPicker = ({
   value,
   setValue
 }) => (
-  <div>
+  <Fragment>
     <TextField
       name={name}
       id={id}
@@ -59,7 +58,7 @@ const ColorPicker = ({
         }}
       />
     )}
-  </div>
+  </Fragment>
 )
 
 ColorPicker.propTypes = {
