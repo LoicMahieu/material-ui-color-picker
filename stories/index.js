@@ -9,8 +9,8 @@ import ColorPicker from '../src'
 class Controlled extends React.Component {
   state = { value: '#fff' };
   onChange = (value) => {
-    this.setState({ value });
-    action('changed')(value);
+    this.setState({ value })
+    action('changed')(value)
   }
   render () {
     return (
