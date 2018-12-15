@@ -78,7 +78,7 @@ const makeColorPicker = compose(
   withState('internalValue', 'setValue', ({ defaultValue }) => defaultValue)
 )
 
-const MakedColorPicker = makeColorPicker(ColorPicker);
+const MakedColorPicker = makeColorPicker(ColorPicker)
 
 const ColorPickerField = ({ input: { value, onChange, ...restInput }, meta: { touched, error }, ...restProps }) => (
   <MakedColorPicker
