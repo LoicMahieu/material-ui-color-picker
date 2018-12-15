@@ -24,8 +24,6 @@ import ColorPicker from 'material-ui-color-picker'
   // value={this.state.color} - for controlled component
   onChange={color => console.log(color)}
 
-  // All other props will be passed to TextField, ex.:
-  fullWidth={true}
 />
 ```
 [Redux-form](https://redux-form.com) field

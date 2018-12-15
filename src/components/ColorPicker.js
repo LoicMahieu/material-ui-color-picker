@@ -22,12 +22,13 @@ const ColorPicker = ({
   floatingLabelText,
   label,
   TextFieldProps,
+  value,
 
   // State
   showPicker,
   setShowPicker,
   internalValue,
-  setValue,
+  setValue
 
 }) => (
   <Fragment>
@@ -42,7 +43,7 @@ const ColorPicker = ({
         setValue(e.target.value)
         onChange(e.target.value)
       }}
-      InputProps={{ style: { color: value } }}
+      InputProps={{ style: { color: value === undefined ? internalValue : value } }}
       {...TextFieldProps}
     />
     {showPicker && (
@@ -87,10 +88,10 @@ const ColorPickerField = ({ input: { value, onChange, ...restInput }, meta: { to
     {...restInput}
     {...restProps}
   />
-);
+)
 
-export default MakedColorPicker;
+export default MakedColorPicker
 
 export {
-  ColorPickerField,
-};
+  ColorPickerField
+}
