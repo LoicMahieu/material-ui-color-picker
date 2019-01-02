@@ -22,18 +22,20 @@ const ColorPicker = ({
   floatingLabelText,
   label,
   TextFieldProps,
+  value,
 
   // State
   showPicker,
   setShowPicker,
-  value,
+  internalValue,
   setValue
+
 }) => (
   <Fragment>
     <TextField
       name={name}
       id={id}
-      value={value}
+      value={value === undefined ? internalValue : value}
       label={floatingLabelText || label}
       placeholder={hintText || placeholder}
       onClick={() => setShowPicker(true)}
@@ -41,12 +43,12 @@ const ColorPicker = ({
         setValue(e.target.value)
         onChange(e.target.value)
       }}
-      InputProps={{ style: { color: value } }}
+      InputProps={{ style: { color: value === undefined ? internalValue : value } }}
       {...TextFieldProps}
     />
     {showPicker && (
       <PickerDialog
-        value={value}
+        value={value === undefined ? internalValue : value}
         onClick={() => {
           setShowPicker(false)
           onChange(value)
@@ -73,7 +75,23 @@ ColorPicker.defaultProps = {
 
 const makeColorPicker = compose(
   withState('showPicker', 'setShowPicker', false),
-  withState('value', 'setValue', ({ defaultValue }) => defaultValue)
+  withState('internalValue', 'setValue', ({ defaultValue }) => defaultValue)
 )
 
-export default makeColorPicker(ColorPicker)
+const MakedColorPicker = makeColorPicker(ColorPicker)
+
+const ColorPickerField = ({ input: { value, onChange, ...restInput }, meta: { touched, error }, ...restProps }) => (
+  <MakedColorPicker
+    value={value}
+    onChange={onChange}
+    errorText={touched && error}
+    {...restInput}
+    {...restProps}
+  />
+)
+
+export default MakedColorPicker
+
+export {
+  ColorPickerField
+}
