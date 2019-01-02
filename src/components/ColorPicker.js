@@ -66,7 +66,19 @@ const ColorPicker = ({
 ColorPicker.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
-  convert: PropTypes.oneOf(Object.keys(converters))
+  convert: PropTypes.oneOf(Object.keys(converters)),
+  defaultValue: PropTypes.string,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  hintText: PropTypes.string,
+  placeholder: PropTypes.string,
+  label: PropTypes.string,
+  floatingLabelText: PropTypes.string,
+  TextFieldProps: PropTypes.shape(TextField.propTypes),
+  showPicker: PropTypes.bool,
+  setShowPicker: PropTypes.func,
+  internalValue: PropTypes.string,
+  setValue: PropTypes.func
 }
 
 ColorPicker.defaultProps = {
@@ -89,6 +101,11 @@ const ColorPickerField = ({ input: { value, onChange, ...restInput }, meta: { to
     {...restProps}
   />
 )
+
+ColorPickerField.propTypes = {
+  input: PropTypes.object,
+  meta: PropTypes.object
+}
 
 export default MakedColorPicker
 
