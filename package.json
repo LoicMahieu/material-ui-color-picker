@@ -1,6 +1,6 @@
 {
   "name": "material-ui-color-picker",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "<ColorInput> component for material-ui",
   "main": "lib/index.js",
   "scripts": {
@@ -27,7 +27,7 @@
     "picker",
     "selector"
   ],
-  "author": "Loic Mahieu",
+  "author": ["Loic Mahieu", "flyandi"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/loicmahieu/material-ui-color-picker/issues"
