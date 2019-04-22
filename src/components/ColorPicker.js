@@ -23,6 +23,7 @@ const ColorPicker = ({
   label,
   TextFieldProps,
   value,
+  fullWidth,
 
   // State
   showPicker,
@@ -33,6 +34,7 @@ const ColorPicker = ({
 }) => (
   <Fragment>
     <TextField
+      fullWidth={fullWidth}
       name={name}
       id={id}
       value={value === undefined ? internalValue : value}
