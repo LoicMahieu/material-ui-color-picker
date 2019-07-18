@@ -22,6 +22,7 @@ const ColorPicker = ({
   floatingLabelText,
   label,
   TextFieldProps,
+  TextFieldComponent = TextField,
   value,
 
   // State
@@ -32,7 +33,7 @@ const ColorPicker = ({
 
 }) => (
   <Fragment>
-    <TextField
+    <TextFieldComponent
       name={name}
       id={id}
       value={value === undefined ? internalValue : value}
@@ -75,6 +76,7 @@ ColorPicker.propTypes = {
   label: PropTypes.string,
   floatingLabelText: PropTypes.string,
   TextFieldProps: PropTypes.shape(TextField.propTypes),
+  TextFieldComponent: PropTypes.node,
   showPicker: PropTypes.bool,
   setShowPicker: PropTypes.func,
   internalValue: PropTypes.string,
