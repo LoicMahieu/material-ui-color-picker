@@ -13,6 +13,7 @@ const ColorPicker = ({
   defaultValue,
   onChange,
   convert,
+  disabled,
 
   // Text field
   name,
@@ -42,22 +43,28 @@ const ColorPicker = ({
       onClick={() => setShowPicker(true)}
       onChange={e => {
         setValue(e.target.value)
-        onChange(e.target.value)
+        if(onChange) {
+          onChange(e.target.value)
+        }
       }}
-      InputProps={{ style: { color: value === undefined ? internalValue : value } }}
+      disabled={disabled}
       {...TextFieldProps}
     />
-    {showPicker && (
+    {showPicker && !disabled && (
       <PickerDialog
         value={value === undefined ? internalValue : value}
         onClick={() => {
-          setShowPicker(false)
-          onChange(value)
+          setShowPicker(false);
+          if(onChange) {
+            onChange(value);
+          }
         }}
         onChange={c => {
-          const newValue = converters[convert](c)
-          setValue(newValue)
-          onChange(newValue)
+          const newValue = converters[convert](c);
+          setValue(newValue);
+          if(onChange) {
+            onChange(newValue);
+          }
         }}
       />
     )}
@@ -76,15 +83,17 @@ ColorPicker.propTypes = {
   label: PropTypes.string,
   floatingLabelText: PropTypes.string,
   TextFieldProps: PropTypes.shape(TextField.propTypes),
-  TextFieldComponent: PropTypes.node,
+  TextFieldComponent: PropTypes.oneOfType([PropTypes.func, PropTypes.node, PropTypes.object]),
   showPicker: PropTypes.bool,
   setShowPicker: PropTypes.func,
   internalValue: PropTypes.string,
-  setValue: PropTypes.func
+  setValue: PropTypes.func,
+  disabled: PropTypes.bool,
 }
 
 ColorPicker.defaultProps = {
-  convert: DEFAULT_CONVERTER
+  convert: DEFAULT_CONVERTER,
+  disabled: false,
 }
 
 const makeColorPicker = compose(
