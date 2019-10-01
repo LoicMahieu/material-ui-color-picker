@@ -1,40 +1,42 @@
-
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { MuiThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/styles'
 
 import ColorPicker from '../src'
 
 class Controlled extends React.Component {
-  state = { value: '#fff' };
-  onChange = (value) => {
+  state = { value: '#fff' }
+
+  handleChange = (value) => {
     this.setState({ value })
     action('changed')(value)
   }
+
   render () {
     return (
-      <MuiThemeProvider>
+      <ThemeProvider theme={{}}>
         <ColorPicker
           value={this.state.value}
-          onChange={this.onChange}
+          onChange={this.handleChange}
           floatingLabelText='Color picker'
+          variant='outlined'
         />
-        <button onClick={() => this.onChange('#00ff00')}>set #00ff00</button>
-      </MuiThemeProvider>
+        <button onClick={() => this.handleChange('#00ff00')}>set #00ff00</button>
+      </ThemeProvider>
     )
   }
 }
 
 storiesOf('ColorPicker', module)
   .add('simple', () => (
-    <MuiThemeProvider>
+    <ThemeProvider theme={{}}>
       <ColorPicker
-        defaultValue='#000'
+        defaultValue='#000000'
         onChange={action('changed')}
         floatingLabelText='Color picker'
       />
-    </MuiThemeProvider>
+    </ThemeProvider>
   ))
   .add('controlled', () => (
     <Controlled />

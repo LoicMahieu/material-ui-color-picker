@@ -1,4 +1,3 @@
-
 export const DEFAULT_CONVERTER = 'rgba_hex'
 export const converters = {
   rgba: c => `rgba(${c.rgb.r}, ${c.rgb.g}, ${c.rgb.b}, ${c.rgb.a})`,
