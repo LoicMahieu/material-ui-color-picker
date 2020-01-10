@@ -61,5 +61,6 @@
   "peerDependencies": {
     "@material-ui/core": "^3.0.0",
     "react": "^16.2.0"
-  }
+  },
+  "types": "src/index.d.ts"
 }
