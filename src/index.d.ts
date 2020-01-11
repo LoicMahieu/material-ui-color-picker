@@ -1,5 +1,6 @@
 import { TextFieldProps } from "@material-ui/core/TextField";
 import { converters } from "./transformers";
+import { FC } from "react";
 
 type props = {
   defaultValue: string;
@@ -11,6 +12,8 @@ type props = {
   internalValue: string;
   setShowPicker: (open: boolean) => void;
   setValue: (value: string) => void;
-} & TextFieldProps;
+} & Omit<TextFieldProps, "onChange">;
 
-export type ColorPicker = (props) => JSX.Element;
+declare const ColorPicker: FC<props>;
+
+export default ColorPicker;

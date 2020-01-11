@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint",
     "lint": "eslint 'src/**/*.js'",
-    "build": "NODE_ENV=production babel ./src -d lib",
+    "build": "NODE_ENV=production babel ./src -d lib --copy-files",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "prepare": "NODE_ENV=production babel ./src -d lib"
   },
