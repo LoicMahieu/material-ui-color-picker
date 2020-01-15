@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import compose from 'recompose/compose'
 import withState from 'recompose/withState'
@@ -10,7 +10,6 @@ import PickerDialog from './PickerDialog'
 
 const ColorPicker = ({
   // ColorPicker
-  defaultValue,
   onChange,
   convert,
 
@@ -28,14 +27,14 @@ const ColorPicker = ({
   showPicker,
   setShowPicker,
   internalValue,
-  setValue
+  setValue,
 
+  ...custom
 }) => (
-  <Fragment>
+  <>
     <TextField
       name={name}
       id={id}
-      value={value === undefined ? internalValue : value}
       label={floatingLabelText || label}
       placeholder={hintText || placeholder}
       onClick={() => setShowPicker(true)}
@@ -45,6 +44,7 @@ const ColorPicker = ({
       }}
       InputProps={{ style: { color: value === undefined ? internalValue : value } }}
       {...TextFieldProps}
+      {...custom}
     />
     {showPicker && (
       <PickerDialog
@@ -60,14 +60,13 @@ const ColorPicker = ({
         }}
       />
     )}
-  </Fragment>
+  </>
 )
 
 ColorPicker.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   convert: PropTypes.oneOf(Object.keys(converters)),
-  defaultValue: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,
   hintText: PropTypes.string,
