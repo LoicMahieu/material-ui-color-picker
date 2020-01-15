@@ -4,6 +4,10 @@
 
 ColorPicker based on [`<TextField />`](http://www.material-ui.com/#/components/text-field) and `<ChromePicker />` from [`react-color`](https://github.com/casesandberg/react-color/) and its [redux-form](https://redux-form.com) field component.
 
+## Demo
+
+[https://material-ui-color-picker.now.sh/](https://material-ui-color-picker.now.sh/)
+
 ## Installation
 
 For material-ui (v1):
