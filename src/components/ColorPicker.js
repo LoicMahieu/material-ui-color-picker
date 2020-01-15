@@ -2,9 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import compose from 'recompose/compose'
 import withState from 'recompose/withState'
-
 import TextField from '@material-ui/core/TextField'
-
 import { DEFAULT_CONVERTER, converters } from '../transformers'
 import PickerDialog from './PickerDialog'
 
@@ -13,6 +11,8 @@ const ColorPicker = ({
   defaultValue,
   onChange,
   convert,
+  disableAlpha,
+  disableColorLabel,
 
   // Text field
   name,
@@ -22,13 +22,20 @@ const ColorPicker = ({
   floatingLabelText,
   label,
   TextFieldProps,
+  variant,
   value,
+
+  // Picker
+  PickerProps,
+  variantPicker,
 
   // State
   showPicker,
   setShowPicker,
   internalValue,
-  setValue
+  setValue,
+
+
 
 }) => (
   <Fragment>
@@ -39,11 +46,12 @@ const ColorPicker = ({
       label={floatingLabelText || label}
       placeholder={hintText || placeholder}
       onClick={() => setShowPicker(true)}
+      variant={variant || 'standard'}
       onChange={e => {
         setValue(e.target.value)
         onChange(e.target.value)
       }}
-      InputProps={{ style: { color: value === undefined ? internalValue : value } }}
+      InputProps={{ style: disableColorLabel ? {} : { color: value === undefined ? internalValue : value } }}
       {...TextFieldProps}
     />
     {showPicker && (
@@ -58,6 +66,9 @@ const ColorPicker = ({
           setValue(newValue)
           onChange(newValue)
         }}
+        disableAlpha={disableAlpha}
+        variant={variantPicker}
+        PickerProps={PickerProps}
       />
     )}
   </Fragment>
@@ -67,6 +78,10 @@ ColorPicker.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   convert: PropTypes.oneOf(Object.keys(converters)),
+  variant: PropTypes.string,
+  variantPicker: PropTypes.string,
+  disableAlpha: PropTypes.bool,
+  disableColorLabel: PropTypes.bool,
   defaultValue: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,
@@ -78,7 +93,9 @@ ColorPicker.propTypes = {
   showPicker: PropTypes.bool,
   setShowPicker: PropTypes.func,
   internalValue: PropTypes.string,
-  setValue: PropTypes.func
+  setValue: PropTypes.func,
+  propsTextField: PropTypes.object,
+  propsPicker: PropTypes.object,
 }
 
 ColorPicker.defaultProps = {
