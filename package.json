@@ -1,6 +1,6 @@
 {
   "name": "material-ui-color-picker",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "description": "<ColorInput> component for material-ui",
   "main": "lib/index.js",
   "scripts": {
