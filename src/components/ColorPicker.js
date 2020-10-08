@@ -33,6 +33,7 @@ const ColorPicker = ({
 }) => (
   <>
     <TextField
+      value={value}
       name={name}
       id={id}
       label={floatingLabelText || label}
