@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import compose from 'recompose/compose'
-import withState from 'recompose/withState'
 
 import TextField from '@material-ui/core/TextField'
 
@@ -84,12 +82,19 @@ ColorPicker.defaultProps = {
   convert: DEFAULT_CONVERTER
 }
 
-const makeColorPicker = compose(
-  withState('showPicker', 'setShowPicker', false),
-  withState('internalValue', 'setValue', ({ defaultValue }) => defaultValue)
-)
-
-const MakedColorPicker = makeColorPicker(ColorPicker)
+const MakedColorPicker = (props) => {
+  const [showPicker, setShowPicker] = useState(false)
+  const [internalValue, setValue] = useState('#ffffff')
+  return (
+    <ColorPicker
+      {...props}
+      showPicker={showPicker}
+      setShowPicker={setShowPicker}
+      internalValue={internalValue}
+      setValue={setValue}
+    />
+  )
+}
 
 const ColorPickerField = ({ input: { value, onChange, ...restInput }, meta: { touched, error }, ...restProps }) => (
   <MakedColorPicker
