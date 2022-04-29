@@ -1,9 +1,48 @@
-
 {
-  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "root": true,
   "extends": [
-    "standard",
-    "standard-react",
-    "plugin:react/recommended"
-  ]
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/dist/**"
+  ],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    // Replace the base rule with the TS version of it, per the README
+    // for @typescript-eslint/no-unused-vars
+    "no-unused-vars": "off",
+    // Unused vars must begin with an underscore
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
+    ],
+
+    "curly": "error",
+    "eqeqeq": ["error", "smart"],
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      {
+        "assertionStyle": "never"
+      }
+    ]
+  }
 }
