@@ -1,15 +1,17 @@
 {
   "name": "material-ui-color-picker",
-  "version": "3.5.1",
+  "version": "4.0.0",
   "description": "<ColorInput> component for material-ui",
-  "main": "lib/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint 'src/**/*.js'",
-    "build": "NODE_ENV=production babel ./src -d lib --copy-files",
+    "lint": "eslint ./src/ --ext .js,.jsx,.ts,.tsx --max-warnings 0",
+    "lint-fix": "npm run lint -- --fix",
+    "build": "tsc -b",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "prepare": "NODE_ENV=production babel ./src -d lib",
-    "now-build": "build-storybook -c .storybook -o public"
+    "prepare": "npm run build",
+    "now-build": "build-storybook -c .storybook -o public",
+    "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "files": [
     "LICENSE",
@@ -35,36 +37,41 @@
   },
   "homepage": "https://github.com/loicmahieu/material-ui-color-picker#readme",
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/types": "^7.8.3",
-    "@material-ui/core": "^3.8.1",
-    "@storybook/addon-actions": "^5.3.3",
-    "@storybook/react": "^5.3.3",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
-    "eslint-plugin-standard": "^4.0.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "@storybook/addon-actions": "~6.4.22",
+    "@storybook/react": "~6.4.22",
+    "@types/react": "~18.0.8",
+    "@types/react-color": "^3.0.6",
+    "@types/react-dom": "~18.0.3",
+    "@typescript-eslint/eslint-plugin": "~5.21.0",
+    "@typescript-eslint/parser": "~5.21.0",
+    "eslint": "~8.14.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "~7.29.4",
+    "eslint-plugin-react-hooks": "~4.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "prettier": "~2.6.2",
+    "typescript": "^4.6.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{html,css,scss,sass}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
-    "@material-ui/styles": "^4.8.2",
-    "prop-types": "^15.7.2",
-    "react-color": "^2.18.0",
-    "recompose": "^0.30.0"
+    "@emotion/react": "~11.9.0",
+    "@emotion/styled": "~11.8.1",
+    "@mui/material": "^5.6.3",
+    "react-color": "^2.19.3",
+    "react-dom": "^17.0.0"
   },
   "peerDependencies": {
-    "@material-ui/core": "^4.8.3",
-    "react": "^16.12.0"
+    "@mui/material": "^5.6.3",
+    "react": "^17.0.0"
   },
   "types": "src/index.d.ts"
 }

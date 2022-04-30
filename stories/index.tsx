@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { ThemeProvider } from '@material-ui/styles'
+import { ThemeProvider } from "@mui/material/styles";
 
 import ColorPicker from '../src'
 
