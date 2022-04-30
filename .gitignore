@@ -1,5 +1,5 @@
-lib
 public
 node_modules
 .npm
 yarn.lock
+dist
