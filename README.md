@@ -31,6 +31,11 @@ import ColorPicker from 'material-ui-color-picker'
 
 There is not so much properties at this time. The was very quickly designed for my needs. Feel free to submit a PR with new features ;)
 
+## Developer Set-up
+
+1. Clone this repository and run `npm install`
+2. If you want a git pre-commit hook to lint and prettify your code, run `husky install` and you should be good to go.
+
 ## License
 
 This library is licensed under the [MIT Licence](LICENSE), and sponsored by [iGLOO](https://igloo.be).
