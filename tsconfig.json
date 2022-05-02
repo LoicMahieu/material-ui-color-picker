@@ -2,9 +2,7 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "removeComments": true,
-    "incremental": true,
     "declaration": true,
-    "composite": true,
     "allowJs": true,
     "esModuleInterop": true,
     "sourceMap": true,
@@ -26,5 +24,5 @@
     "outDir": "dist",
   },
   "include": ["src/**/*", "tsconfig.json"],
-  "exclude": ["node_modules", "*.js"]
+  "exclude": ["node_modules", "*.js", "dist"]
 }
