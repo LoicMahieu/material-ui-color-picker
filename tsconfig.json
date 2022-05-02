@@ -3,7 +3,8 @@
     "target": "es6",
     "module": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": "./src",               
+    "baseUrl": "./src",
+    "rootDir": "./src",        
     "outDir": "./dist",                                                    
     "esModuleInterop": true,                       
     "forceConsistentCasingInFileNames": true,
@@ -23,6 +24,6 @@
     "strict": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*", "tsconfig.json"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "*.js", "dist"]
 }
