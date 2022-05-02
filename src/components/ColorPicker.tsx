@@ -11,7 +11,7 @@ import PickerDialog from "./PickerDialog";
 import { ConverterType } from "../index";
 import { ColorResult } from "react-color";
 
-interface ColorPickerProps {
+export interface ColorPickerProps {
   convert?: ConverterType;
   name?: string;
   id?: string;
