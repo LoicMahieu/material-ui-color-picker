@@ -3,6 +3,7 @@
   "version": "4.0.0",
   "description": "<ColorInput> component for material-ui",
   "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "test": "npm run lint",
     "lint": "eslint ./src/ --ext .js,.jsx,.ts,.tsx --max-warnings 0",
@@ -69,6 +70,5 @@
     "react-color": "^2.19.3",
     "react-dom": "^18.0.0",
     "react": "^18.0.0"
-  },
-  "types": "src/index.d.ts"
+  }
 }
